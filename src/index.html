@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>UserApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <script>
+      function validarNumeros(evt) {
+        theEvent = evt || window.event;
+
+        // Handle paste
+        if (theEvent.type === 'paste') {
+          key = event.clipboardData.getData('text/plain');
+        } else {
+         // Handle key press
+          key = theEvent.keyCode || theEvent.which;
+          key = String.fromCharCode(key);
+        }
+        regex = new RegExp('^[0-9]$');
+        if( !regex.test(key) ) {
+          theEvent.returnValue = false;
+          if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</html>

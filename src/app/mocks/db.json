@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Manuel",
+      "lastname": "Del Pozo",
+      "email": "madepozo@gmail.com",
+      "age": 28,
+      "role": "Web UI Developer",
+      "phone": 997868546
+    },
+    {
+      "id": 2,
+      "name": "Ricardo",
+      "lastname": "Canahualpa",
+      "email": "rj.canahua@gmail.com",
+      "age": 33,
+      "role": "Web Developer",
+      "phone": 987928426
+    },
+    {
+      "id": 3,
+      "name": "Marlene",
+      "lastname": "Gamarra",
+      "email": "gamarra.quiroga@gmail.com",
+      "age": 33,
+      "role": "Web Developer",
+      "phone": 987928425
+    },
+    {
+      "id": 4,
+      "name": "Edinson",
+      "lastname": "Muñoz",
+      "email": "edinsonmunoz@gmail.com",
+      "age": 33,
+      "role": "Web Developer",
+      "phone": 98791234
+    },
+    {
+      "name": "juan jose",
+      "lastname": "espinoza reyes",
+      "email": "jjespinoza@gmail.com",
+      "age": "23",
+      "role": "comunicador",
+      "phone": "123456789",
+      "id": 7
+    }
+  ]
+}

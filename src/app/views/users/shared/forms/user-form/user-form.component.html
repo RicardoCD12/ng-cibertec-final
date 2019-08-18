@@ -1,0 +1,93 @@
+<form #userForm="ngForm" autocomplete="off">
+        <div class="form-group">
+                <label for="txtNombres">Nombres</label>
+                <input type="text" class="form-control" placeholder="Ingrese nombres"
+                        [class.is-invalid]="name.touched && name.invalid"
+                        [(ngModel)]="model.name" #name="ngModel" name="name" 
+                        required minlength="6" maxlength="50">
+                <div class="invalid-feedback">
+                        {{ name.errors && name.errors.required ? 'El nombre es requerido' : 'El nombre debe tener 6 caracteres como mínimo y 100 como máximo' }}
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="txtApePaterno">Apellidos</label>
+                <input type="text" class="form-control" placeholder="Ingrese apellidos"
+                        [class.is-invalid]="lastname.touched && lastname.invalid"
+                        [(ngModel)]="model.lastname" #lastname="ngModel" name="lastname" 
+                        required maxlength="100">
+                <div class="invalid-feedback">
+                        {{ lastname.errors && lastname.errors.required ? 'Los Apellidos son obligatorios' : 'Los Apellidos deben tener 100 caracteres como máximo' }}
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input type="text" class="form-control" placeholder="Ingrese email"
+                        [class.is-invalid]="email.touched && email.invalid"
+                        [(ngModel)]="model.email" #email="ngModel" name="email" required email>
+                <div class="invalid-feedback">
+                        {{ email.errors && email.errors.required ? 'El Email es obligatorio' : 'El Email no cumple con el formato de correo'}}
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="txtDNI">Edad</label>
+                <input type="text" class="form-control" placeholder="Ingrese edad" style="width: 120px;"
+                        [class.is-invalid]="age.touched && age.invalid"
+                        [(ngModel)]="model.age" #age="ngModel" name="age" 
+                        required maxlength="2" onkeypress="validarNumeros(event)">
+                <div class="invalid-feedback">
+                        {{ age.errors && age.errors.required ? 'La Edad es obligatoria' : ''}}
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="txtDireccion">Rol</label>
+                <input type="text" class="form-control" placeholder="Ingrese Rol"
+                        [class.is-invalid]="role.touched && role.invalid"
+                        [(ngModel)]="model.role" #role="ngModel" name="role" required maxlength="100">
+                <div class="invalid-feedback">
+                        {{ role.errors && role.errors.required ? 'El Rol es obligatorio' : 'El Rol debe tener 100 caracteres como máximo'}}
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="txtTelefono">Teléfono</label>
+                <input type="text" class="form-control" placeholder="Ingrese teléfono" style="width: 240px;"
+                        [class.is-invalid]="phone.touched && phone.invalid"
+                        [(ngModel)]="model.phone" #phone="ngModel" name="phone" 
+                        required maxlength="9" minlength="9" onkeypress="validarNumeros(event)">
+                <div class="invalid-feedback">
+                        {{ phone.errors && phone.errors.required ? 'El Teléfono es obligatorio' : 'El teléfono debe tener 9 dígitos'}}
+                </div>
+        </div>
+
+        <div class="modal-footer">
+                <button type="button" 
+                        class="btn btn-warning"
+                        data-toggle="modal" 
+                        (click)="onBack();">Cancelar</button>
+
+                <button type="button" 
+                        class="btn btn-primary"
+                        data-toggle="modal" 
+                        data-target="#miModalConfirmar"
+                        [disabled]="userForm.invalid">{{ buttonTitle }}</button>
+        </div>
+        
+        <div class="modal fade" id="miModalConfirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                ¿ Está seguro de {{buttonTitle}} el usuario ?
+                                </div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit(userForm)" >Sí</button>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</form>

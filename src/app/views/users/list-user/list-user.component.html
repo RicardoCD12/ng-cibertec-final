@@ -1,0 +1,32 @@
+<h2>Lista de Usuarios</h2>
+<div>
+    <a [routerLink]="['/users/create']" class="btn btn-info">Nuevo</a>
+</div>
+<br>
+<table class="table table-bordered">
+    <thead>
+        <td scope="col">Id</td>
+        <td scope="col">Nombre y Apellidos</td>
+        <td scope="col">Correo</td>
+        <td scope="col">Edad</td>
+        <td scope="col">Rol</td>
+        <td scope="col">Teléfono</td>
+        <td scope="col">Actions</td>
+    </thead>
+    <tbody>
+        <tr appHover *ngFor="let user of allUsers; let i = index;">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{user.lastname}}, {{user.name}} </td>
+            <td>{{user.email}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.phone}}</td>
+            <td>
+                <a [routerLink]="['/users/', user.id]" class="btn btn-sm btn-primary" type="button">Editar</a>
+                &nbsp;
+                <button class="btn btn-sm btn-danger" (click)="onRemove(user.id)" type="button">Eliminar</button>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>
